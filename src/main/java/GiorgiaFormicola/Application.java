@@ -3,7 +3,6 @@ package GiorgiaFormicola;
 import GiorgiaFormicola.dao.EventsDAO;
 import GiorgiaFormicola.entities.Event;
 import GiorgiaFormicola.enums.EventType;
-import GiorgiaFormicola.exceptions.NotFoundException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -25,13 +24,29 @@ public class Application {
 
         /*try {
             eventsDAO.save(event1);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
             eventsDAO.save(event2);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
             eventsDAO.save(event3);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }*/
 
-        try {
+        /*try {
+            eventsDAO.save(event3);
+        } catch (EventAlreadySavedException e) {
+            System.out.println(e.getMessage());
+        }*/
+
+        /*try {
             Event event1FromDB = eventsDAO.getById(1);
             System.out.println(event1FromDB);
         } catch (NotFoundException e) {
@@ -43,7 +58,19 @@ public class Application {
             System.out.println(event4FromDB);
         } catch (NotFoundException e) {
             System.out.println(e.getMessage());
+        }*/
+
+        /*try {
+            eventsDAO.delete(1);
+        } catch (NotFoundException e) {
+            System.out.println(e.getMessage());
         }
+
+        try {
+            eventsDAO.delete(1);
+        } catch (NotFoundException e) {
+            System.out.println(e.getMessage());
+        }*/
 
         entityManager.close();
         entityManagerFactory.close();
