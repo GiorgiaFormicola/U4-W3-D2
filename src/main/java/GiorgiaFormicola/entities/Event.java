@@ -1,28 +1,46 @@
 package GiorgiaFormicola.entities;
 
 import GiorgiaFormicola.enums.EventType;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "events")
 public class Event {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column(nullable = false, length = 30)
     private String title;
+
+    @Column(name = "date", nullable = false)
     private LocalDate eventDate;
+
     private String description;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "type", nullable = false, length = 30)
     private EventType eventType;
+
+    @Column(name = "maximum_participants")
     private int maxNumberOfParticipants;
 
+    //CONSTRUCTOR FOR DB
+    public Event() {
+    }
+
     //CONSTRUCTOR FOR JAVA
-    Event(String title, int year, int month, int day, String description, EventType eventType, int maxNumberOfParticipants) {
+    public Event(String title, int year, int month, int day, String description, EventType eventType, int maxNumberOfParticipants) {
         this.title = title;
         this.eventDate = LocalDate.of(year, month, day);
         this.description = description;
         this.eventType = eventType;
         this.maxNumberOfParticipants = maxNumberOfParticipants;
     }
-    
-    //GETTERS
 
+    //GETTERS
     public long getId() {
         return id;
     }
@@ -48,7 +66,6 @@ public class Event {
     }
 
     //SETTERS
-
     public void setDescription(String description) {
         this.description = description;
     }
