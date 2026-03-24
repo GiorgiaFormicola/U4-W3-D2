@@ -40,6 +40,7 @@ public class Event {
         this.maxNumberOfParticipants = maxNumberOfParticipants;
     }
 
+
     //GETTERS
     public long getId() {
         return id;
